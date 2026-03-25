@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Scene from '../components/Scene';
+import Hero3D from '../components/Hero3D';
 
 type Language = 'en' | 'mn';
 
@@ -58,7 +58,7 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-[#0a0a0f]">
-      <Scene />
+      <Hero3D />
 
       <div className="pointer-events-none absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0f]" />
