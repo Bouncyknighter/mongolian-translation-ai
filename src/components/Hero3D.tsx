@@ -2,7 +2,7 @@
 
 import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float } from '@react-three/drei';
+import { Float, Line } from '@react-three/drei';
 import * as THREE from 'three';
 
 function NeuralNetwork() {
@@ -64,18 +64,19 @@ function NeuralNetwork() {
         </Float>
       ))}
       
-      {connections.map(([i, j], idx) => {
-        const points = [
-          new THREE.Vector3(nodes[i].x, nodes[i].y, nodes[i].z),
-          new THREE.Vector3(nodes[j].x, nodes[j].y, nodes[j].z)
-        ];
-        const geometry = new THREE.BufferGeometry().setFromPoints(points);
-        return (
-          <line key={idx} geometry={geometry}>
-            <lineBasicMaterial color="#64ffda" transparent opacity={0.2} />
-          </line>
-        );
-      })}
+      {connections.map(([i, j], idx) => (
+        <Line
+          key={idx}
+          points={[
+            [nodes[i].x, nodes[i].y, nodes[i].z],
+            [nodes[j].x, nodes[j].y, nodes[j].z]
+          ]}
+          color="#64ffda"
+          opacity={0.2}
+          transparent
+          lineWidth={1}
+        />
+      ))}
     </group>
   );
 }
