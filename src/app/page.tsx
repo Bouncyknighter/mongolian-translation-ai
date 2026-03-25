@@ -306,7 +306,7 @@ export default function Home() {
               </div>
 
               <div className="flex items-center gap-8">
-                <a href="mailto:contact@gebiai.com" className="rounded-lg border border-[#64ffda]/30 bg-[#64ffda]/10 px-4 py-2 text-sm text-[#64ffda] transition-colors hover:bg-[#64ffda]/20">
+                <a href="mailto:misheel@gebifirm.info" className="rounded-lg border border-[#64ffda]/30 bg-[#64ffda]/10 px-4 py-2 text-sm text-[#64ffda] transition-colors hover:bg-[#64ffda]/20">
                   Contact Us
                 </a>
                 <a href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Documentation</a>
