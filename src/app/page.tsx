@@ -104,6 +104,13 @@ export default function Home() {
               >
                 {showDemo ? 'Hide Demo' : 'See Live Demo'}
               </motion.button>
+
+              <a
+                href="mailto:misheel@gebifirm.info"
+                className="rounded-xl border border-[#64ffda]/30 bg-[#64ffda]/10 px-8 py-4 font-semibold text-[#64ffda] backdrop-blur-sm transition-all hover:bg-[#64ffda]/20"
+              >
+                Contact Us
+              </a>
             </div>
 
             <div className="mt-8 flex items-center justify-center gap-2 text-sm text-gray-500">
@@ -306,12 +313,6 @@ export default function Home() {
               </div>
 
               <div className="flex items-center gap-8">
-                <a href="mailto:misheel@gebifirm.info" className="rounded-lg border border-[#64ffda]/30 bg-[#64ffda]/10 px-4 py-2 text-sm text-[#64ffda] transition-colors hover:bg-[#64ffda]/20">
-                  Contact Us
-                </a>
-                <a href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Documentation</a>
-                <a href="#" className="text-sm text-gray-500 hover:text-white transition-colors">API</a>
-                <a href="#" className="text-sm text-gray-500 hover:text-white transition-colors">GitHub</a>
               </div>
 
               <div className="text-sm text-gray-500">
