@@ -73,28 +73,17 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="mb-8"
-            >
-              <span className="inline-block rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-2 text-sm font-medium text-indigo-400 backdrop-blur-sm">
-                🚀 Powered by Advanced AI
-              </span>
-            </motion.div>
-
             <h1 className="mb-6 font-['Space_Grotesk'] text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl">
               <span className="text-white">Mongolian</span>
               <br />
-              <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#64ffda] via-[#00bfa5] to-[#00bfa5] bg-clip-text text-transparent">
                 Translation AI
               </span>
             </h1>
 
             <p className="mx-auto mb-10 max-w-2xl text-lg text-gray-400 md:text-xl">
-              Bridge language barriers with neural machine translation. 
-              Powered by deep learning models trained on millions of bilingual texts.
+              Bridge language barriers with neural machine translation.
+              Built specifically for Mongolian Cyrillic with context-aware AI.
             </p>
 
             <div className="flex flex-col items-center gap-4 sm:flex-row">
@@ -102,7 +91,7 @@ export default function Home() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setShowDemo(true)}
-                className="rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 px-8 py-4 font-semibold text-white shadow-lg shadow-indigo-500/30 transition-all hover:shadow-xl hover:shadow-indigo-500/50"
+                className="rounded-xl bg-gradient-to-r from-[#64ffda] to-[#00bfa5] px-8 py-4 font-semibold text-[#0a0a0f] shadow-lg shadow-[#64ffda]/30 transition-all hover:shadow-xl hover:shadow-[#64ffda]/50"
               >
                 Start Translating →
               </motion.button>
@@ -116,19 +105,25 @@ export default function Home() {
                 {showDemo ? 'Hide Demo' : 'See Live Demo'}
               </motion.button>
             </div>
+
+            <div className="mt-8 flex items-center justify-center gap-2 text-sm text-gray-500">
+              <span>Supported by</span>
+              <span className="font-semibold text-[#64ffda]">NVIDIA Inception</span>
+              <span>&</span>
+              <span className="font-semibold text-[#64ffda]">Microsoft for Startup</span>
+            </div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4"
+            className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-3"
           >
             {[
-              { value: '10M+', label: 'Tokens Trained' },
-              { value: '50+', label: 'Languages' },
+              { value: '10M+', label: 'Characters' },
               { value: '98.5%', label: 'Accuracy' },
-              { value: '<2s', label: 'Avg. Response' },
+              { value: '<3s', label: 'Avg. Time' },
             ].map((stat, i) => (
               <motion.div
                 key={i}
@@ -137,7 +132,7 @@ export default function Home() {
                 transition={{ delay: 0.5 + i * 0.1 }}
                 className="text-center"
               >
-                <div className="font-['Space_Grotesk'] text-3xl font-bold text-white md:text-4xl">
+                <div className="text-3xl font-bold text-[#64ffda] md:text-4xl">
                   {stat.value}
                 </div>
                 <div className="mt-1 text-sm text-gray-500">{stat.label}</div>
@@ -165,10 +160,10 @@ export default function Home() {
                       <select
                         value={sourceLang}
                         onChange={(e) => setSourceLang(e.target.value as Language)}
-                        className="rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white backdrop-blur-sm focus:border-indigo-500 focus:outline-none"
+                        className="rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white backdrop-blur-sm focus:border-[#64ffda] focus:outline-none"
                       >
                         {Object.entries(LANGUAGES).map(([code, lang]) => (
-                          <option key={code} value={code}>
+                          <option key={code} value={code} className="bg-[#1a1a2e]">
                             {lang.flag} {lang.label}
                           </option>
                         ))}
@@ -186,10 +181,10 @@ export default function Home() {
                       <select
                         value={targetLang}
                         onChange={(e) => setTargetLang(e.target.value as Language)}
-                        className="rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white backdrop-blur-sm focus:border-indigo-500 focus:outline-none"
+                        className="rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-white backdrop-blur-sm focus:border-[#64ffda] focus:outline-none"
                       >
                         {Object.entries(LANGUAGES).map(([code, lang]) => (
-                          <option key={code} value={code}>
+                          <option key={code} value={code} className="bg-[#1a1a2e]">
                             {lang.flag} {lang.label}
                           </option>
                         ))}
@@ -206,7 +201,7 @@ export default function Home() {
                         value={inputText}
                         onChange={(e) => setInputText(e.target.value)}
                         placeholder="Enter text to translate..."
-                        className="h-64 w-full resize-none rounded-xl border border-white/10 bg-white/5 p-4 pt-12 text-white placeholder-gray-600 focus:border-indigo-500 focus:outline-none"
+                        className="h-64 w-full resize-none rounded-xl border border-white/10 bg-white/5 p-4 pt-12 text-white placeholder-gray-600 focus:border-[#64ffda] focus:outline-none"
                       />
                       <div className="absolute bottom-4 right-4 text-sm text-gray-600">
                         {inputText.length} chars
@@ -217,10 +212,10 @@ export default function Home() {
                       <div className="absolute left-4 top-4 text-sm text-gray-500">
                         {LANGUAGES[targetLang].flag} {targetLang.toUpperCase()}
                       </div>
-                      <div className="flex h-64 w-full resize-none rounded-xl border border-white/10 bg-indigo-500/5 p-4 pt-12 text-white">
+                      <div className="flex h-64 w-full resize-none rounded-xl border border-white/10 bg-[#64ffda]/5 p-4 pt-12 text-white">
                         {isTranslating ? (
-                          <div className="flex items-center gap-3 text-indigo-400">
-                            <div className="h-5 w-5 animate-spin rounded-full border-2 border-indigo-500 border-t-transparent" />
+                          <div className="flex items-center gap-3 text-[#64ffda]">
+                            <div className="h-5 w-5 animate-spin rounded-full border-2 border-[#64ffda] border-t-transparent" />
                             Translating...
                           </div>
                         ) : outputText ? (
@@ -245,7 +240,7 @@ export default function Home() {
                       whileTap={{ scale: 0.98 }}
                       onClick={handleTranslate}
                       disabled={!inputText.trim() || isTranslating}
-                      className="rounded-xl bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 px-8 py-3 font-semibold text-white shadow-lg shadow-indigo-500/30 transition-all hover:shadow-xl disabled:opacity-50"
+                      className="rounded-xl bg-gradient-to-r from-[#64ffda] to-[#00bfa5] px-8 py-3 font-semibold text-[#0a0a0f] shadow-lg shadow-[#64ffda]/30 transition-all hover:shadow-xl disabled:opacity-50"
                     >
                       {isTranslating ? 'Translating...' : 'Translate →'}
                     </motion.button>
@@ -262,22 +257,22 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mb-16 text-center font-['Space_Grotesk'] text-4xl font-bold text-white md:text-5xl"
+              className="mb-16 text-center text-4xl font-bold text-white md:text-5xl"
             >
               Why Choose{' '}
-              <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#64ffda] to-[#00bfa5] bg-clip-text text-transparent">
                 Our Platform
               </span>
             </motion.h2>
 
             <div className="grid gap-8 md:grid-cols-3">
               {[
-                { icon: '🧠', title: 'Neural Machine Translation', description: 'State-of-the-art transformer models trained specifically for Mongolian language nuances.' },
-                { icon: '⚡', title: 'Real-time Processing', description: 'Lightning-fast translations with optimized inference pipelines.' },
-                { icon: '🔒', title: 'Privacy First', description: 'Your text is never stored. All processing happens securely with encryption.' },
-                { icon: '📚', title: 'Context Aware', description: 'Understands idioms, cultural references, and domain-specific terminology.' },
-                { icon: '🌐', title: '50+ Languages', description: 'Translate between Mongolian and major world languages with high accuracy.' },
-                { icon: '📱', title: 'API Access', description: 'Integrate translation into your applications with our developer-friendly API.' },
+                { icon: '🤖', title: 'Neural Machine Translation', description: 'State-of-the-art deep learning models trained specifically for Mongolian language nuances.' },
+                { icon: '📚', title: 'Book Translation', description: 'Specialized in long-form content translation with context preservation across chapters.' },
+                { icon: '⚡', title: 'Fast Processing', description: 'Optimized pipeline handles entire books efficiently with batch translation technology.' },
+                { icon: '🎯', title: 'Context Aware', description: 'Understands context from surrounding sentences for more accurate translations.' },
+                { icon: '🔄', title: 'PDF Support', description: 'Directly translate PDF documents while preserving formatting and images.' },
+                { icon: '🌐', title: 'Mongolian Native', description: 'Built specifically for Mongolian Cyrillic with proper grammatical structure.' },
               ].map((feature, i) => (
                 <motion.div
                   key={i}
@@ -285,10 +280,10 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/20"
+                  className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all hover:bg-white/10 hover:border-[#64ffda]/30"
                 >
                   <div className="mb-4 text-4xl">{feature.icon}</div>
-                  <h3 className="mb-2 font-['Space_Grotesk'] text-xl font-semibold text-white">
+                  <h3 className="mb-2 text-xl font-semibold text-white">
                     {feature.title}
                   </h3>
                   <p className="text-gray-400">{feature.description}</p>
@@ -302,21 +297,25 @@ export default function Home() {
           <div className="mx-auto max-w-6xl">
             <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500" />
-                <span className="font-['Space_Grotesk'] text-xl font-semibold text-white">
-                  MongolAI
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#64ffda] to-[#00bfa5]">
+                  <span className="text-lg font-bold text-[#0a0a0f]">М</span>
+                </div>
+                <span className="text-xl font-semibold text-white">
+                  Gebi AI
                 </span>
               </div>
 
-              <div className="flex gap-8 text-sm text-gray-500">
-                <a href="#" className="hover:text-white transition-colors">Documentation</a>
-                <a href="#" className="hover:text-white transition-colors">API</a>
-                <a href="#" className="hover:text-white transition-colors">Pricing</a>
-                <a href="#" className="hover:text-white transition-colors">GitHub</a>
+              <div className="flex items-center gap-8">
+                <a href="mailto:contact@gebiai.com" className="rounded-lg border border-[#64ffda]/30 bg-[#64ffda]/10 px-4 py-2 text-sm text-[#64ffda] transition-colors hover:bg-[#64ffda]/20">
+                  Contact Us
+                </a>
+                <a href="#" className="text-sm text-gray-500 hover:text-white transition-colors">Documentation</a>
+                <a href="#" className="text-sm text-gray-500 hover:text-white transition-colors">API</a>
+                <a href="#" className="text-sm text-gray-500 hover:text-white transition-colors">GitHub</a>
               </div>
 
               <div className="text-sm text-gray-500">
-                © 2026 MongolAI. All rights reserved.
+                © 2026 Gebi AI. All rights reserved.
               </div>
             </div>
           </div>
